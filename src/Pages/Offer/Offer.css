@@ -1,0 +1,98 @@
+
+
+.offer1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.offer1 h6{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    color: #32343E;
+    margin: 0;
+}
+
+
+.offer1 button{
+    width: 200px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background-color: #245196;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: #FFFFFF;
+    margin: 0;
+    cursor: pointer;
+}
+
+
+.offer{
+    box-shadow: 0px 2px 60px 0px #061D221A;
+    border: 1px solid #F0F1F3;
+    border-radius: 12px;
+    margin-top: 20px;
+    padding: 24px;
+}
+
+
+.offer2{
+
+}
+
+.offer2 h6{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
+    color: #32343E;
+    margin: 0;
+}
+
+
+.offer3{
+    margin-top: 20px;
+}
+
+.offer3 table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.offer3 table th{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15.28px;
+    color: #8B909A;
+    margin: 0;
+    padding: 16px 0px 16px 8px;
+    border-bottom: 1px solid #DBDADE;
+}
+
+.offer3 table td{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #23272E;
+    margin: 0;
+    padding: 16px 0px 16px 8px;
+    text-align: center;
+}
+
+
+.offer4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+}
