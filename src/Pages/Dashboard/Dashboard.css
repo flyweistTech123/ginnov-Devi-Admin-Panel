@@ -241,6 +241,7 @@
   border-radius: 24px;
   background-color: #eeeeee;
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 .dashboard21 input {
@@ -294,12 +295,12 @@
   cursor: pointer;
 }
 
-.driver .dashboard24 {
+.dashboard24 {
   margin-top: 20px;
 }
 
 
-.driver .dashboard24 table {
+.dashboard24 table {
   width: 100%;
   border-collapse: collapse; 
 }
@@ -361,6 +362,7 @@
   padding: 0px 14px 0px 8px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background-color: #28c76f;
   border-radius: 16px;

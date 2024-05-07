@@ -1,6 +1,7 @@
 import React from 'react'
 import './Offer.css'
 import HOC from '../../Components/HOC/HOC'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -12,13 +13,14 @@ import { MdEdit } from "react-icons/md";
 
 
 const Offer = () => {
+    const navigate = useNavigate()
     return (
         <>
             <div className='dashboard'>
                 <div className='dashboard2'>
                     <div className='offer1'>
                         <h6>Offer</h6>
-                        <button>Add  New</button>
+                        <button onClick={()=>navigate('/addoffer')}>Add  New</button>
                     </div>
                     <div className='offer'>
                         <div className='offer2'>

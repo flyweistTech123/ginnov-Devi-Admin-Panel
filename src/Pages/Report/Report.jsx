@@ -1,26 +1,23 @@
 import React from 'react'
-import './Allcardetails.css'
+import './Report.css'
 import HOC from '../../Components/HOC/HOC'
 
 
 
-import { IoMdStar } from "react-icons/io";
 import { IoSearchSharp } from "react-icons/io5";
 import { VscFilter } from "react-icons/vsc";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { FaSortAmountUp } from "react-icons/fa";
-import { IoMdCheckmark } from "react-icons/io";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { MdEdit } from "react-icons/md";
 
 
 
-import img from '../../Image/img2.png'
 
 
-
-const Allcardetails = () => {
+const Report = () => {
     return (
         <>
             <div className='dashboard'>
@@ -28,11 +25,16 @@ const Allcardetails = () => {
                     <h6>Welcome Back Jay</h6>
                     <p>Here is the information about all your Cars</p>
                 </div>
+
+                <div className='report'>
+                    <h6>Report</h6>
+                    <p>Here is the information about all your Cars</p>
+                </div>
                 <div className='dashboard2'>
                     <div className='driver'>
                         <div className='dashboard18'>
                             <div className='dashboard19'>
-                                <h6>Total Car Service</h6>
+                                <h6>All Report</h6>
                                 <div className='dashboard20'>
                                     <div className='dashboard21'>
                                         <IoSearchSharp color='#32343E' size={20} />
@@ -48,6 +50,9 @@ const Allcardetails = () => {
                                         <p>Sort</p>
                                         <MdOutlineArrowDropDown color='#32343E' size={20} />
                                     </div>
+                                    <div className='dashboard23'>
+                                        <p>View All</p>
+                                    </div>
                                 </div>
                             </div>
                             <div className='dashboard24'>
@@ -56,24 +61,31 @@ const Allcardetails = () => {
                                         <tr>
                                             <th>User ID</th>
                                             <th>Name</th>
-                                            <th>Car</th>
-                                            <th>Vehicle No.</th>
-                                            <th>Subscription</th>
-                                            <th>Rental</th>
-                                            <th>Car sharing</th>
-                                            <th>Govt. Tender</th>
+                                            <th>Number</th>
+                                            <th>Level</th>
+                                            <th>Royality</th>
+                                            <th>Host Income</th>
+                                            <th>Referral Point</th>
+                                            <th>Earning</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td style={{ fontWeight: "700" }}>#0313131</td>
                                             <td>Jassi Singh</td>
-                                            <td>Maruti Swift</td>
-                                            <td>RJ14TF1200</td>
-                                            <td>YES</td>
-                                            <td>YES</td>
-                                            <td>YES</td>
-                                            <td>Coming soon</td>
+                                            <td>+91 999887770</td>
+                                            <td>2000</td>
+                                            <td>12000</td>
+                                            <td>120000</td>
+                                            <td>5000</td>
+                                            <td>Today</td>
+                                            <td>
+                                                <div className='offer4'>
+                                                    <MdEdit color='#1C1B1F' />
+                                                    <RiDeleteBin6Line color='#EA5455' />
+                                                </div>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -111,4 +123,4 @@ const Allcardetails = () => {
     )
 }
 
-export default HOC(Allcardetails)
+export default HOC(Report)
