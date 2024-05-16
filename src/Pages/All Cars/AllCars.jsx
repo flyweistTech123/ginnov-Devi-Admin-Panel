@@ -1,15 +1,14 @@
-import React from 'react'
+import React, {useEffect,  useState } from 'react'
 import './AllCars.css'
 import HOC from '../../Components/HOC/HOC'
+import axios from 'axios'
+import { BaseUrl, getAuthHeaders } from '../../Components/BaseUrl/BaseUrl'
 
 
-
-import { IoMdStar } from "react-icons/io";
 import { IoSearchSharp } from "react-icons/io5";
 import { VscFilter } from "react-icons/vsc";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { FaSortAmountUp } from "react-icons/fa";
-import { IoMdCheckmark } from "react-icons/io";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -21,6 +20,38 @@ import img from '../../Image/img2.png'
 
 
 const AllCars = () => {
+    const [cardata, setCarData] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [loading, setLoading] = useState(true);
+
+
+    const fetchCars = async () => {
+        try {
+            const response = await axios.get(`${BaseUrl}/admin/car/allCars`, getAuthHeaders())
+            const carDataArray = Object.values(response.data.data);
+            setCarData(carDataArray);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            setLoading(false);
+        }
+        finally {
+            setLoading(false);
+        };
+    }
+
+    useEffect(() => {
+        fetchCars(); // Fetch user data on component mount
+    }, [])
+
+    const handleSearch = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    const filteredData = cardata.filter(car =>
+        car?.user?.fullName && car?.user?.fullName.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+
     return (
         <>
             <div className='dashboard'>
@@ -68,21 +99,54 @@ const AllCars = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <img src={img} alt="" />
-                                            </td>
-                                            <td>#0313131</td>
-                                            <td>Maruti Swift</td>
-                                            <td>Maruti</td>
-                                            <td>RJ14TF1200</td>
-                                            <td>James Bond</td>
-                                            <td>Done</td>
-                                            <td>₹20,321</td>
-                                            <td>Delhi</td>
-                                            <td>Active</td>
-                                            <td><RiDeleteBin6Line /></td>
-                                        </tr>
+                                        {loading ? (
+                                            <tr>
+                                                <td colSpan="10" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Loading users...</td>
+                                            </tr>
+                                        ) :
+                                            searchQuery && filteredData.length === 0 ? (
+                                                <tr>
+                                                    <td colSpan="10" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>user not found</td>
+                                                </tr>
+                                            ) : (
+
+                                                searchQuery
+                                                    ?
+                                                    filteredData?.map(user => (
+                                                        <tr>
+                                                            <td>
+                                                                <img src={img} alt="" />
+                                                            </td>
+                                                            <td>#0313131</td>
+                                                            <td>Maruti Swift</td>
+                                                            <td>Maruti</td>
+                                                            <td>RJ14TF1200</td>
+                                                            <td>James Bond</td>
+                                                            <td>Done</td>
+                                                            <td>₹20,321</td>
+                                                            <td>Delhi</td>
+                                                            <td>Active</td>
+                                                            <td><RiDeleteBin6Line /></td>
+                                                        </tr>
+                                                    ))
+                                                    : cardata?.map(user => (
+                                                        <tr>
+                                                            <td>
+                                                                <img src={img} alt="" />
+                                                            </td>
+                                                            <td>#0313131</td>
+                                                            <td>Maruti Swift</td>
+                                                            <td>Maruti</td>
+                                                            <td>RJ14TF1200</td>
+                                                            <td>James Bond</td>
+                                                            <td>Done</td>
+                                                            <td>₹20,321</td>
+                                                            <td>Delhi</td>
+                                                            <td>Active</td>
+                                                            <td><RiDeleteBin6Line /></td>
+                                                        </tr>
+                                                    ))
+                                            )}
                                     </tbody>
                                 </table>
                             </div>

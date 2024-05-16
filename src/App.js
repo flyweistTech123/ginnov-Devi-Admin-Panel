@@ -43,7 +43,7 @@ function App() {
           <Route path="/editbrands" element={<AdminRouteProtect><EditBrands /></AdminRouteProtect>} />
           <Route path="/faqs" element={<AdminRouteProtect><FAQs /></AdminRouteProtect>} />
           <Route path="/addfaqs" element={<AdminRouteProtect><AddFAQs /></AdminRouteProtect>} />
-          <Route path="/editfaqs" element={<AdminRouteProtect><EditFAQs /></AdminRouteProtect>} />
+          <Route path="/editfaqs/:id" element={<AdminRouteProtect><EditFAQs /></AdminRouteProtect>} />
           <Route path="/report" element={<AdminRouteProtect><Report /></AdminRouteProtect>} />
           <Route path="/quackcoin" element={<AdminRouteProtect><QuackCoin /></AdminRouteProtect>} />
           <Route path="/addquackcoin" element={<AdminRouteProtect><AddQuackCoin /></AdminRouteProtect>} />
