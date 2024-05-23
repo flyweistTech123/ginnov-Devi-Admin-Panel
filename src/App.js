@@ -21,6 +21,12 @@ import QuackCoin from './Pages/Quack Coin/QuackCoin';
 import AddQuackCoin from './Pages/Quack Coin/AddQuackCoin';
 import AddOffer from './Pages/Offer/AddOffer';
 import Login from './Pages/Login/Login';
+import AddTaxreport from './Pages/Tax report/AddTaxreport';
+import Admin from './Pages/Admin/Admin';
+import AddAdminRole from './Pages/Admin/AddAdminRole';
+import AllUsers from './Pages/All Users/AllUsers';
+import HostProfile from './Pages/Host List/HostProfile';
+import PaymentPayout from './Pages/Host List/PaymentPayout';
 
 
 function App() {
@@ -48,6 +54,12 @@ function App() {
           <Route path="/quackcoin" element={<AdminRouteProtect><QuackCoin /></AdminRouteProtect>} />
           <Route path="/addquackcoin" element={<AdminRouteProtect><AddQuackCoin /></AdminRouteProtect>} />
           <Route path="/addoffer" element={<AdminRouteProtect><AddOffer /></AdminRouteProtect>} />
+          <Route path="/addtaxreport" element={<AdminRouteProtect><AddTaxreport /></AdminRouteProtect>} />
+          <Route path="/admin" element={<AdminRouteProtect><Admin /></AdminRouteProtect>} />
+          <Route path="/addadminrole" element={<AdminRouteProtect><AddAdminRole /></AdminRouteProtect>} />
+          <Route path="/allusers" element={<AdminRouteProtect><AllUsers /></AdminRouteProtect>} />
+          <Route path="/hostprofile" element={<AdminRouteProtect><HostProfile /></AdminRouteProtect>} />
+          <Route path="/paymentpayout" element={<AdminRouteProtect><PaymentPayout /></AdminRouteProtect>} />
         </Routes>
       </Router>
     </>

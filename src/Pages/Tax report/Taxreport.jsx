@@ -1,6 +1,7 @@
 import React from 'react'
 import './Taxreport.css'
 import HOC from '../../Components/HOC/HOC'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -12,13 +13,15 @@ import { MdEdit } from "react-icons/md";
 
 
 const Taxreport = () => {
+    const navigate = useNavigate()
+
     return (
         <>
             <div className='dashboard'>
                 <div className='dashboard2'>
                     <div className='offer1'>
                         <h6>Tax report</h6>
-                        <button>Add  New</button>
+                        <button onClick={() => navigate('/addtaxreport')}>Add  New</button>
                     </div>
                     <div className='offer'>
                         <div className='offer2'>
@@ -45,7 +48,7 @@ const Taxreport = () => {
                                         <td>
                                             <div className='offer4'>
                                                 <MdEdit color='#1C1B1F' />
-                                                <RiDeleteBin6Line  color='#EA5455' />
+                                                <RiDeleteBin6Line color='#EA5455' />
                                             </div>
                                         </td>
                                     </tr>
@@ -57,7 +60,7 @@ const Taxreport = () => {
                                         <td>
                                             <div className='offer4'>
                                                 <MdEdit color='#1C1B1F' />
-                                                <RiDeleteBin6Line  color='#EA5455' />
+                                                <RiDeleteBin6Line color='#EA5455' />
                                             </div>
                                         </td>
                                     </tr>

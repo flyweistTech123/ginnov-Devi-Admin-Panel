@@ -21,7 +21,7 @@ const Sidebar = ({ toggleSidebar }) => {
         { text: 'Reports', link: '/report' },
         { text: 'Tax Reports', link: '/taxreport' },
         { text: 'QC', link: '/quackcoin' },
-        { text: 'Admin', link: '/drivers' },
+        { text: 'Admin', link: '/admin' },
         { text: 'All Car Details', link: '/allcardetails' },
     ];
 

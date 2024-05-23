@@ -1,0 +1,159 @@
+.admin1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+
+.admin2{
+    width: auto;
+    height: auto;
+    background: #FFFFFF;
+    border: 1.38px solid #E0E2E7;
+    border-radius: 22.14px;
+    padding: 33.21px;
+    cursor: pointer;
+}
+
+
+
+.admin3{
+    display: flex;
+    align-items: center;
+    gap: 120px;
+}
+
+.admin3 p{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 500;
+    font-size: 19.37px;
+    line-height: 22.14px;
+    color: #32343E;
+    margin: 0;
+}
+
+
+.admin4{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+.admin5{
+    position: absolute;
+    right: 30px;
+}
+
+
+.admin6{
+    position: absolute;
+    right: 15px;
+    color: #b4b4b440;
+}
+
+
+
+.admin7{
+    margin-top: 20px;
+}
+
+.admin7 h6{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 600;
+    font-size: 25.21px;
+    line-height: 38.75px;
+    color: #245196;
+    margin: 0;
+}
+
+.admin7 p{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 500;
+    font-size: 18.14px;
+    line-height: 33.21px;
+    color: #9F9F9F;
+    margin: 0;
+}
+
+
+
+.admin8{
+    margin-top: 100px;
+}
+
+
+.admin9{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+
+.admin10{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.admin10 p{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -2%;
+    color: #245196;
+    margin: 0;
+}
+
+
+.admin10 span{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -2%;
+    color: #9F9F9F;
+    margin: 0;
+}
+
+
+
+.admin11 p{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: -2%;
+    color: #000000;
+    margin: 0;
+}
+
+
+
+.admin12{
+    margin-top: 50px;
+}
+
+.admin12 h6{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 36px;
+    color: #32343E;
+    margin: 0;
+}
+
+.admin12 p{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #8B909A;
+    margin: 0;
+    margin-top: 10px;
+}
