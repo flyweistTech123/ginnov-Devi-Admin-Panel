@@ -6,7 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 
 
-const TopPart = () => {
+const TopPart1 = () => {
     const navigate = useNavigate();
     const location = useLocation();
     return (
@@ -50,10 +50,8 @@ const TopPart = () => {
 
                     <div className="hostprofile6">
                         <div className="hostprofile7">
-                            <p className={location.pathname === "/hostprofile" ? "hostprofile8" : "hostprofile9"} onClick={() => navigate("/hostprofile")}>Listed Cars</p>
-                            <p className={location.pathname === "/paymentpayout" ? "hostprofile8" : "hostprofile9"} onClick={() => navigate("/paymentpayout")}>Payment and Payout</p>
-                            <p className={location.pathname === "/rides" ? "hostprofile8" : "hostprofile9"} onClick={() => navigate("/rides")}>Rides</p>
-                            <p className={location.pathname === "/hostOffers" ? "hostprofile8" : "hostprofile9"} onClick={() => navigate("/hostOffers")}>Offers</p>
+                            <p className={location.pathname === "/referralhistory" ? "hostprofile8" : "hostprofile9"} onClick={() => navigate("/referralhistory")}>Referral History</p>
+                            <p className={location.pathname === "/recentbookings" ? "hostprofile8" : "hostprofile9"} onClick={() => navigate("/recentbookings")}>Bookings</p>
                         </div>
                     </div>
                 </div>
@@ -62,4 +60,4 @@ const TopPart = () => {
     )
 }
 
-export default TopPart
+export default TopPart1

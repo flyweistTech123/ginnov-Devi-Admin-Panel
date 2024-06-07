@@ -27,6 +27,13 @@ import AddAdminRole from './Pages/Admin/AddAdminRole';
 import AllUsers from './Pages/All Users/AllUsers';
 import HostProfile from './Pages/Host List/HostProfile';
 import PaymentPayout from './Pages/Host List/PaymentPayout';
+import Rides from './Pages/Host List/Rides';
+import HostOffers from './Pages/Host List/HostOffers';
+import ReferralHistory from './Pages/Host List/ReferralHistory';
+import Recentbookings from './Pages/Host List/Recentbookings';
+import NewsReport from './Pages/NoticeNews Report/NewsReport';
+import AddNewsReport from './Pages/NoticeNews Report/AddNewsReport';
+import CancelationReason from './Pages/Cancelation Reason/CancelationReason';
 
 
 function App() {
@@ -60,6 +67,13 @@ function App() {
           <Route path="/allusers" element={<AdminRouteProtect><AllUsers /></AdminRouteProtect>} />
           <Route path="/hostprofile" element={<AdminRouteProtect><HostProfile /></AdminRouteProtect>} />
           <Route path="/paymentpayout" element={<AdminRouteProtect><PaymentPayout /></AdminRouteProtect>} />
+          <Route path="/rides" element={<AdminRouteProtect><Rides /></AdminRouteProtect>} />
+          <Route path="/hostOffers" element={<AdminRouteProtect><HostOffers /></AdminRouteProtect>} />
+          <Route path="/referralhistory" element={<AdminRouteProtect><ReferralHistory /></AdminRouteProtect>} />
+          <Route path="/recentbookings" element={<AdminRouteProtect><Recentbookings /></AdminRouteProtect>} />
+          <Route path="/newsreport" element={<AdminRouteProtect><NewsReport /></AdminRouteProtect>} />
+          <Route path="/addnewsreport" element={<AdminRouteProtect><AddNewsReport /></AdminRouteProtect>} />
+          <Route path="/cancelationreason" element={<AdminRouteProtect><CancelationReason /></AdminRouteProtect>} />
         </Routes>
       </Router>
     </>

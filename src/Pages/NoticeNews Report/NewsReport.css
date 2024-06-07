@@ -1,0 +1,52 @@
+.newsReport{
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+
+
+
+
+.newsReport1{
+    background: #F1F1F2;
+    border: 1px dotted #BBBBBB;
+    width:375px;
+    height: 178px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+
+.newsReport2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.newsReport2 p{
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #898A8D;
+    margin: 0;
+}
+
+
+
+.newsReport3 h6{
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    color: #32343E;
+    margin: 0;
+}
+
+
+.newsReport4{
+    margin-top: 20px;
+}

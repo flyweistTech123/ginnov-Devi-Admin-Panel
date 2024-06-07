@@ -314,7 +314,7 @@
   line-height: 15.28px;
   color: #8b909a;
   margin: 0;
-  text-align: center;
+  /* text-align: center; */
 /* white-space: nowrap; */
 }
 
@@ -328,7 +328,7 @@
   text-align: center;
   padding-top: 26px;
   cursor: pointer;
-  text-align: center;
+  /* text-align: center; */
   /* white-space: nowrap; */
 }
 

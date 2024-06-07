@@ -1,0 +1,36 @@
+.cancelreason1{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.cancelreason2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 16px;
+}
+
+
+.cancelreason2:hover{
+    background-color: #F3F4F8;
+}
+
+
+.cancelreason3{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cancelreason3 p{
+    font-family: "Public Sans", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    color: #252430;
+    margin: 0;
+}
