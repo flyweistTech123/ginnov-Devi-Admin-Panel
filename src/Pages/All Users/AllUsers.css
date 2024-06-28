@@ -1,0 +1,36 @@
+/* Custom styles for the dropdown toggle button */
+.table-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.table-icon.dropdown-toggle::after {
+  display: none;
+}
+
+.userdrop {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userdrop p {
+  font-family: "Public Sans", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #32343E;
+  margin: 0;
+}
+
+
+
+.userdrop1{
+    margin-top: 10px;
+}
+
+
+
+.linkfrop{
+  text-decoration: none;
+}

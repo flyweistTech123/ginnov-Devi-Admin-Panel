@@ -299,10 +299,15 @@
   margin-top: 20px;
 }
 
+.dashboard244 {
+  overflow: auto;
+  overflow-x: scroll;
+}
 
 .dashboard24 table {
   width: 100%;
-  border-collapse: collapse; 
+  border-collapse: collapse;
+  overflow: auto;
 }
 
 .dashboard24 table th {
@@ -315,7 +320,7 @@
   color: #8b909a;
   margin: 0;
   /* text-align: center; */
-/* white-space: nowrap; */
+  /* white-space: nowrap; */
 }
 
 .dashboard24 table td {

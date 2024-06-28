@@ -10,6 +10,7 @@ const Sidebar = ({ toggleSidebar }) => {
 
     const sidebarItems = [
         { text: 'Dashboard', link: '/dashboard' },
+        { text: 'Users', link: '/allusers' },
         { text: 'Host List', link: '/hostlist' },
         { text: 'Brands', link: '/brands' },
         { text: 'Drivers List', link: '/driverslist' },

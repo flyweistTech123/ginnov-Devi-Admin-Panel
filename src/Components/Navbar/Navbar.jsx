@@ -10,7 +10,7 @@ import img from '../../Image/img.png'
 const Navbar = ({toggleSidebar}) => {
     return (
         <>
-            <div className='navbar'>
+            <div className='navbar11'>
                 <div className='navbar1'>
                     <div className='navbar2'>
                         <BsFilterRight  onClick={toggleSidebar} size={25} color='#000000'/>

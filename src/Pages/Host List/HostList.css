@@ -20,6 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 15px;
 }
 
 .hostprofile2 {
@@ -28,9 +29,15 @@
   gap: 10px;
 }
 
-.hostprofile3 img {
+.hostprofile3 {
   width: 130px;
   height: 130px;
+  border-radius: 100px;
+}
+
+.hostprofile3 img {
+  width: 100%;
+  height: 100%;
   border-radius: 100px;
 }
 
@@ -111,7 +118,8 @@
   gap: 30px;
 }
 
-.hostprofile11 {}
+.hostprofile11 {
+}
 
 .hostprofile12 {
   width: auto;
@@ -121,7 +129,8 @@
   background-color: #f4f4f4;
 }
 
-.hostprofile13 {}
+.hostprofile13 {
+}
 
 .hostprofile13 img {
   width: 100%;
@@ -353,33 +362,28 @@
   margin: 0;
 }
 
-
-
-
 .hostprofile27 {
   width: auto;
   height: auto;
-  border: 1px solid #F0F1F3;
-  box-shadow: 0px 4px 30px 0px #2E2D740D;
-  background: #FFFFFF;
+  border: 1px solid #f0f1f3;
+  box-shadow: 0px 4px 30px 0px #2e2d740d;
+  background: #ffffff;
   border-radius: 12px;
   padding: 24px;
   margin-top: 50px;
 }
 
-
-.hostprofile28 {}
+.hostprofile28 {
+}
 
 .hostprofile28 h6 {
   font-family: "Public Sans", sans-serif;
   font-weight: 600;
   font-size: 22px;
   line-height: 28px;
-  color: #32343E;
+  color: #32343e;
   margin: 0;
 }
-
-
 
 .hostprofile29 {
   width: 100%;
@@ -393,17 +397,16 @@
 
 .hostprofile29 table thead th {
   /* text-align: center; */
-  background: #F8F9FA;
-  border-bottom: 1px solid #DBDADE;
+  background: #f8f9fa;
+  border-bottom: 1px solid #dbdade;
   height: 48px;
   font-family: "Public Sans", sans-serif;
   font-weight: 500;
   font-size: 13px;
   line-height: 15.28px;
-  color: #8B909A;
+  color: #8b909a;
   margin: 0;
 }
-
 
 .hostprofile29 table tbody td {
   text-align: center;
@@ -411,7 +414,7 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 22px;
-  color: #23272E;
+  color: #23272e;
   margin: 0;
   cursor: pointer;
 }
@@ -420,47 +423,39 @@
   height: 76px;
 }
 
-
 .hostprofile29 table tbody tr:hover {
-  background-color: #F3F4F8;
+  background-color: #f3f4f8;
 }
 
-
-
-
-
-.hostprofile31{
-
+.hostprofile31 {
 }
 
-.hostprofile31 h6{
+.hostprofile31 h6 {
   font-family: "Public Sans", sans-serif;
   font-weight: 600;
   font-size: 22px;
   line-height: 28px;
-  color: #23272E;
+  color: #23272e;
   margin: 0;
 }
 
-.hostprofile32{
+.hostprofile32 {
   margin-top: 20px;
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-
-.hostprofile33{
+.hostprofile33 {
   width: 368px;
   height: 176px;
   border-radius: 29px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 0px 4px 0px #00000040;
   position: relative;
 }
 
-
-.hostprofile34{
+.hostprofile34 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -468,24 +463,23 @@
   gap: 20px;
 }
 
-
-.hostprofile35{
+.hostprofile35 {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.hostprofile35 h6{
+.hostprofile35 h6 {
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 700;
   font-size: 30px;
   line-height: 37.95px;
   letter-spacing: 2%;
-  color: #34FFB6;
+  color: #34ffb6;
   margin: 0;
 }
 
-.hostprofile35 p{
+.hostprofile35 p {
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -495,11 +489,10 @@
   margin: 0;
 }
 
-
-.hostprofile37{
+.hostprofile37 {
   width: 100%;
   height: 45px;
-  background: #FFCE2B;
+  background: #ffce2b;
   box-shadow: 0px -1px 4px 0px #00000040;
   display: flex;
   align-items: center;
@@ -510,8 +503,7 @@
   cursor: pointer;
 }
 
-
-.hostprofile37 p{
+.hostprofile37 p {
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 700;
   font-size: 16px;

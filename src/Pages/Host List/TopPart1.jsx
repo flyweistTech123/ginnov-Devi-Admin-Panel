@@ -2,7 +2,7 @@ import React from 'react'
 import './HostList.css'
 import img from '../../Image/img16.png'
 import { AiOutlineRise } from "react-icons/ai";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 
 

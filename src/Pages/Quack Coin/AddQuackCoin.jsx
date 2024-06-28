@@ -27,10 +27,11 @@ const AddQuackCoin = () => {
                                 <div className='quackcoin2'>
                                     <label htmlFor="">User Type</label>
                                     <select name="" id="">
-                                        <option value="">User</option>
-                                        <option value="">User</option>
-                                        <option value="">User</option>
-                                        <option value="">User</option>
+                                        <option value="">New User</option>
+                                        <option value="">Level 4</option>
+                                        <option value="">Level 5</option>
+                                        <option value="">Level 6</option>
+                                        <option value="">Level 8</option>
                                     </select>
                                 </div>
                                 <div className='quackcoin2'>
