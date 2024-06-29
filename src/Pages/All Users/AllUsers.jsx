@@ -79,8 +79,8 @@ const AllUsers = () => {
     <>
       <div className='dashboard'>
         <div className='dashboard1'>
-          <h6>Welcome Back Jay</h6>
-          <p>Here is the information about all your Cars</p>
+          <h6>Welcome Back</h6>
+          <p>Here is the information about all Users</p>
         </div>
 
         <div className='dashboard2'>
@@ -120,7 +120,6 @@ const AllUsers = () => {
                       <th>Name</th>
                       <th>Phone No.</th>
                       <th>Email ID</th>
-                      <th>User & host</th>
                       <th>Registration Date</th>
                       <th>KYC</th>
                       <th>Location</th>
@@ -148,7 +147,6 @@ const AllUsers = () => {
                               <td>{user?.user?.fullName}</td>
                               <td>{user?.user?.mobileNumber}</td>
                               <td>{user?.user?.email}</td>
-                              <td>{user?.user?.currentRole}</td>
                               <td>{user?.memberSince}</td>
                               <td>
                                 {user?.user?.accountVerification ? (
@@ -171,20 +169,14 @@ const AllUsers = () => {
                                   </Dropdown.Toggle>
                                   <Dropdown.Menu>
                                     <Dropdown.Item href="#/action-1" className='userdrop1'>
-                                      <Link to={`/userbookings/${user?.user?._id}`}>
+                                      <Link to={`/userProfile/${user?._id}`} className='linkfrop'>
                                         <div className='userdrop'>
                                           <FaRegUser color='#000000' size={20} />
                                           <p>View Profile</p>
                                         </div>
                                       </Link>
                                     </Dropdown.Item>
-                                    <Dropdown.Item href="#/action-1" className='userdrop1'>
-                                      <div className='userdrop'>
-                                        <RiEditLine color='#000000' size={20} />
-                                        <p>Edit entry</p>
-                                      </div>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item href="#/action-1" className='userdrop1'>
+                                    <Dropdown.Item href="#/action-1" className='userdrop1' onClick={() => deleteusr(user?._id)}>
                                       <div className='userdrop'>
                                         <RiDeleteBinLine color='#EA5455' size={20} />
                                         <p style={{ color: '#EA5455' }}>Delete entry</p>
@@ -201,12 +193,10 @@ const AllUsers = () => {
                               <td>{user?.user?.fullName}</td>
                               <td>{user?.user?.mobileNumber}</td>
                               <td>{user?.user?.email}</td>
-                              <td>{user?.user?.currentRole}</td>
                               <td>{user?.memberSince}</td>
                               <td>
                                 {user?.user?.accountVerification ? (
                                   <div className='dashboard27'>
-                                    <IoMdCheckmark color='#FFFFFF' size={20} />
                                     <p>Done</p>
                                   </div>
                                 ) : (
@@ -224,18 +214,12 @@ const AllUsers = () => {
                                   </Dropdown.Toggle>
                                   <Dropdown.Menu>
                                     <Dropdown.Item href="#/action-1" className='userdrop1'>
-                                      <Link to={`/userbookings/${user?._id}`}  className='linkfrop'>
+                                      <Link to={`/userProfile/${user?._id}`} className='linkfrop'>
                                         <div className='userdrop'>
                                           <FaRegUser color='#000000' size={20} />
                                           <p>View Profile</p>
                                         </div>
                                       </Link>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item href="#/action-1" className='userdrop1'>
-                                      <div className='userdrop'>
-                                        <RiEditLine color='#000000' size={20} />
-                                        <p>Edit entry</p>
-                                      </div>
                                     </Dropdown.Item>
                                     <Dropdown.Item href="#/action-1" className='userdrop1' onClick={() => deleteusr(user?._id)}>
                                       <div className='userdrop'>

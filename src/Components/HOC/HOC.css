@@ -1,29 +1,31 @@
 .container1 {
-    display: flex;
-    height: 100%;
-  }
-  
-  .sidebar55 {
-    width: 260px;
-    flex: 0 0 auto;
-  }
-  
-  .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .child-component {
-    flex: 1;
-    padding: 20px;
-  }
+  display: flex;
+  height: 100%;
+  transition: all 0.3s ease;
+}
 
-  .sidebar55-hidden .content {
-    flex: 1 1 100%; 
-  }
-  
-  
-  
-  
-  
+.sidebar55 {
+  width: 16%;
+  flex: 0 0 auto;
+  transition: width 0.3s ease;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+}
+
+.child-component {
+  padding: 20px;
+  transition: width 0.3s ease;
+}
+
+.sidebar-hidden .content {
+  flex: 1 1 100%;
+}
+
+.sidebar-hidden .child-component {
+  width: 100%;
+}

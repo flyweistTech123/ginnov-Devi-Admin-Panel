@@ -15,7 +15,7 @@
 
 .dashboard1 p {
   font-family: "Public Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   color: #8b909a;
@@ -207,14 +207,14 @@
 }
 
 .dashboard18 {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .dashboard19 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 98%;
+  /* width: 98%; */
 }
 
 .dashboard19 h6 {
@@ -296,46 +296,62 @@
 }
 
 .dashboard24 {
-  margin-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .dashboard244 {
-  overflow: auto;
-  overflow-x: scroll;
+  margin-top: 20px;
 }
 
 .dashboard24 table {
   width: 100%;
   border-collapse: collapse;
-  overflow: auto;
+  font-family: "Public Sans", sans-serif;
+}
+
+.dashboard24 table thead tr{
+  background-color: #245196;
+  height: 50px;
 }
 
 .dashboard24 table th {
+  text-align: left;
   border-bottom: 1px solid #dbdade;
-  padding: 8px 20px 8px 20px;
-  font-family: "Public Sans", sans-serif;
   font-weight: 500;
   font-size: 13px;
   line-height: 15.28px;
-  color: #8b909a;
-  margin: 0;
-  /* text-align: center; */
+  color: #ffffff;
+  padding-left: 5px;
   /* white-space: nowrap; */
+}
+.dashboard24 table tbody tr {
+  height: 50px;
+  transition: background-color 0.2s ease-in-out; 
 }
 
 .dashboard24 table td {
-  font-family: "Public Sans", sans-serif;
+  text-align: left;
   font-weight: 400;
   font-size: 15px;
   line-height: 22px;
   color: #23272e;
-  margin: 0;
-  text-align: center;
-  padding-top: 26px;
+  padding-left: 5px;
   cursor: pointer;
-  /* text-align: center; */
+  border-bottom: 1px solid #dbdade;
   /* white-space: nowrap; */
 }
+
+.dashboard24 table tbody tr:hover {
+  background-color: #e0dede;
+}
+
+.dashboard24 table tbody tr:last-child td {
+  border-bottom: none; 
+}
+
 
 .dashboard25 h5 {
   font-family: "Public Sans", sans-serif;
@@ -362,13 +378,12 @@
 }
 
 .dashboard27 {
-  width: auto;
+  width: 90%;
   height: 32px;
   padding: 0px 14px 0px 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   background-color: #28c76f;
   border-radius: 16px;
 }

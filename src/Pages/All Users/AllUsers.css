@@ -19,18 +19,182 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
-  color: #32343E;
+  color: #32343e;
+  margin: 0;
+}
+
+.userdrop1 {
+  margin-top: 10px;
+}
+
+.linkfrop {
+  text-decoration: none;
+}
+
+.userprofile {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.userprofile1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userprofile1 h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #000000;
+  line-height: 15.06px;
+  letter-spacing: 0.2px;
+  margin: 0;
+  width: 18%;
+}
+
+.userprofile2 {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-right: 20px;
+}
+
+.userprofile2 button {
+  width: 127px;
+  height: 31px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  /* background-color: #c3052c; */
+  background-color: #245196;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  /* color: #ffffff; */
+  color: #ffffff;
+  line-height: 21px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.userprofile3 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.userprofile4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.userprofile5 {
+  width: 200px;
+  height: 300px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6.58px;
+  background-color: #245196;
+  border: 0.66px solid #00000033;
+}
+
+.userprofile5 h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 16.2px;
+  color: #ffffff;
+  line-height: 24.29px;
+  margin: 0;
+}
+
+.userprofile5 img {
+  width: 100%;
+  height: 100%;
+}
+
+.userprofile6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.userprofile7 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.userprofile8 {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 15px;
+}
+
+.userprofile8 label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+  line-height: 19.5px;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+.userprofile8 input {
+  width: 100%;
+  padding-right: 20px;
+  min-height: 36px;
+  height: auto;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+
+.userprofile9 {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userprofile9 h5 {
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: #32343e;
   margin: 0;
 }
 
 
-
-.userdrop1{
-    margin-top: 10px;
+.userprofile10{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 20px;
 }
 
-
-
-.linkfrop{
-  text-decoration: none;
+.adminprofileupdate {
+  background-color: #245196;
+  /* background-color: #000000; */
+  color: #ffffff;
 }

@@ -7,7 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 24px 12px 24px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #245196;
+  padding: 12px 24px;
 }
 
 

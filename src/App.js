@@ -34,7 +34,7 @@ import Recentbookings from './Pages/Host List/Recentbookings';
 import NewsReport from './Pages/NoticeNews Report/NewsReport';
 import AddNewsReport from './Pages/NoticeNews Report/AddNewsReport';
 import CancelationReason from './Pages/Cancelation Reason/CancelationReason';
-import UserBookings from './Pages/All Users/UserBookings';
+import UserProfile from './Pages/All Users/UserProfile';
 
 
 function App() {
@@ -75,7 +75,7 @@ function App() {
           <Route path="/newsreport" element={<AdminRouteProtect><NewsReport /></AdminRouteProtect>} />
           <Route path="/addnewsreport" element={<AdminRouteProtect><AddNewsReport /></AdminRouteProtect>} />
           <Route path="/cancelationreason" element={<AdminRouteProtect><CancelationReason /></AdminRouteProtect>} />
-          <Route path="/userbookings/:id" element={<AdminRouteProtect><UserBookings /></AdminRouteProtect>} />
+          <Route path="/userProfile/:id" element={<AdminRouteProtect><UserProfile /></AdminRouteProtect>} />
         </Routes>
       </Router>
     </>

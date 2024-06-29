@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './AllUsers.css'
-import HOC from '../../Components/HOC/HOC'
 import { BaseUrl, getAuthHeaders } from '../../Components/BaseUrl/BaseUrl'
 
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -11,9 +10,6 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 
-
-import img from '../../Image/img2.png'
-import UserDetailsTop from './UserDetailsTop';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -59,14 +55,6 @@ const UserBookings = () => {
     return (
         <>
             <div className='dashboard'>
-                <div className='dashboard1'>
-                    <h6>Welcome Back Jay</h6>
-                    <p>Here is the information about all your Cars</p>
-                </div>
-                <div>
-                    <UserDetailsTop />
-                </div>
-
                 <div className='hostprofile22'>
                     <div className='hostprofile27'>
                         <div className='hostprofile30'>
@@ -106,18 +94,17 @@ const UserBookings = () => {
                                             <th>Pickup Location</th>
                                             <th>Drop Location</th>
                                             <th>Status</th>
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {loading ? (
                                             <tr>
-                                                <td colSpan="10" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Loading Bookings...</td>
+                                                <td colSpan="12" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Loading Bookings...</td>
                                             </tr>
                                         ) :
                                             userBookings.length === 0 ? (
                                                 <tr>
-                                                    <td colSpan="10" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Bookings not found</td>
+                                                    <td colSpan="12" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Bookings not found</td>
                                                 </tr>
                                             ) :
                                                 userBookings.map((item, index) => (
@@ -125,7 +112,7 @@ const UserBookings = () => {
                                                         <td>
                                                             <img src={item?.car?.owner?.image} alt="" />
                                                         </td>
-                                                        <td>{item?.uniqueBookinId}</td>
+                                                        <td>#{item?.uniqueBookinId}</td>
                                                         <td>{item?.car?.owner?.fullName}</td>
                                                         <td>{item?.car?.variant}</td>
                                                         <td>{item?.car?.licenseNumber}</td>
@@ -135,8 +122,9 @@ const UserBookings = () => {
                                                         </td>
                                                         <td>{item.totalPrice}</td>
                                                         <td>{item.isRental? "Rent":item.isSharingBooking?"Sharing":"subscription"}</td>
-                                                        <td>{item.Status}</td>
-                                                        <td><RiDeleteBin6Line color='#1C1B1F' size={20} /></td>
+                                                        <td>{item?.pickupLocation?.name}</td>
+                                                        <td>{item?.dropOffLocation?.name}</td>
+                                                        <td>{item?.status}</td>
                                                     </tr>
                                                 ))
                                         }
@@ -176,4 +164,4 @@ const UserBookings = () => {
     )
 }
 
-export default HOC(UserBookings)
+export default UserBookings
