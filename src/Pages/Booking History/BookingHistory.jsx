@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './BookingHistory.css'
 import HOC from '../../Components/HOC/HOC'
+import { BaseUrl, getAuthHeaders } from '../../Components/BaseUrl/BaseUrl'
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
 
-import { IoMdStar } from "react-icons/io";
 import { IoSearchSharp } from "react-icons/io5";
 import { VscFilter } from "react-icons/vsc";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { FaSortAmountUp } from "react-icons/fa";
-import { IoMdCheckmark } from "react-icons/io";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -20,13 +21,47 @@ import img from '../../Image/img2.png'
 
 
 
+
+
 const BookingHistory = () => {
+    const [bookingsdata, setBookingsData] = useState([])
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        AllBookings();
+    }, [])
+
+
+
+    const AllBookings = async () => {
+        try {
+            const response = await axios.get(`${BaseUrl}/admin/bookings`, getAuthHeaders());
+            setBookingsData(response?.data?.data)
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            setLoading(false);
+        }
+        finally {
+            setLoading(false);
+        };
+    }
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const day = date.getUTCDate();
+        const month = date.toLocaleString('default', { month: 'long' });
+        const year = date.getUTCFullYear();
+
+        return `${day}-${month}-${year}`;
+    }
+
     return (
         <>
             <div className='dashboard'>
                 <div className='dashboard1'>
                     <h6>Welcome Back Jay</h6>
-                    <p>Here is the information about all your Cars</p>
+                    <p>Here is the information about all bookings</p>
                 </div>
                 <div className='dashboard2'>
                     <div className='driver'>
@@ -50,41 +85,59 @@ const BookingHistory = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='dashboard24'>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Image</th>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Car</th>
-                                            <th>Vehicle No.</th>
-                                            <th>Booking Date & Time</th>
-                                            <th>Amount</th>
-                                            <th>Type</th>
-                                            <th>Location</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <img src={img} alt="" />
-                                            </td>
-                                            <td>#0313131</td>
-                                            <td>Jassi Singh</td>
-                                            <td>Maruti Swift</td>
-                                            <td>RJ14TF1200</td>
-                                            <td>03/03/2024  12:00</td>
-                                            <td>600</td>
-                                            <td>Rent</td>
-                                            <td>Delhi</td>
-                                            <td>Completed</td>
-                                            <td><RiDeleteBin6Line /></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div className='dashboard244'>
+                                <div className='dashboard24'>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Car</th>
+                                                <th>Vehicle No.</th>
+                                                <th>Pickup and drop time</th>
+                                                <th>Amount</th>
+                                                <th>Type</th>
+                                                <th>Pickup Location</th>
+                                                <th>Drop Location</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loading ? (
+                                                <tr>
+                                                    <td colSpan="12" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Loading Bookings...</td>
+                                                </tr>
+                                            ) :
+                                                bookingsdata.length === 0 ? (
+                                                    <tr>
+                                                        <td colSpan="12" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Bookings not found</td>
+                                                    </tr>
+                                                ) :
+                                                    bookingsdata.map((item, index) => (
+                                                        <tr key={index}>
+                                                            <td>
+                                                                <img src={item?.car?.owner?.image} alt="" />
+                                                            </td>
+                                                            <td>#{item?.uniqueBookinId}</td>
+                                                            <td>{item?.car?.owner?.fullName}</td>
+                                                            <td>{item?.car?.variant}</td>
+                                                            <td>{item?.car?.licenseNumber}</td>
+                                                            <td>
+                                                                {formatDate(item.pickupDate)}{item.pickupTime}-<br />
+                                                                {formatDate(item.dropOffDate)}{item.dropOffTime}
+                                                            </td>
+                                                            <td>{item.totalPrice}</td>
+                                                            <td>{item.isRental ? "Rent" : item.isSharingBooking ? "Sharing" : "subscription"}</td>
+                                                            <td>{item?.pickupLocation?.name}</td>
+                                                            <td>{item?.dropOffLocation?.name}</td>
+                                                            <td>{item?.status}</td>
+                                                        </tr>
+                                                    ))
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div className='dashboard28'>
                                 <p>Showing 1-5 from 100</p>

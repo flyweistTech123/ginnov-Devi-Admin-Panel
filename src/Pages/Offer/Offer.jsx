@@ -10,12 +10,13 @@ import axios from 'axios'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdEdit } from "react-icons/md";
 
-
+import { AddOffers } from './AddOffer'
 
 
 const Offer = () => {
     const [offers, setoffers] = useState('')
     const [loading, setLoading] = useState(true);
+    const [modalShow, setModalShow] = useState(false);
     const navigate = useNavigate()
 
 
@@ -47,60 +48,64 @@ const Offer = () => {
 
         return `${formattedDate} `;
     };
+
+
     return (
         <>
+            <AddOffers
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
             <div className='dashboard'>
                 <div className='dashboard2'>
                     <div className='offer1'>
-                        <h6>Offer</h6>
-                        <button onClick={() => navigate('/addoffer')}>Add  New</button>
+                        <h6>Offers list</h6>
+                        <button onClick={() =>setModalShow(true)}>Add  New</button>
                     </div>
                     <div className='offer'>
-                        <div className='offer2'>
-                            <h6>List</h6>
-                        </div>
-
-                        <div className='offer3'>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Code</th>
-                                        <th>Content</th>
-                                        <th>Quantity</th>
-                                        <th>Dicound</th>
-                                        <th>Target Users</th>
-                                        <th>Description</th>
-                                        <th>Start Date</th>
-                                        <th>End date</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {loading ? (
+                        <div className='dashboard244'>
+                            <div className='dashboard24'>
+                                <table>
+                                    <thead>
                                         <tr>
-                                            <td colSpan="10" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Loading users...</td>
+                                            <th>Code</th>
+                                            <th>Content</th>
+                                            <th>Quantity</th>
+                                            <th>Dicound</th>
+                                            <th>Target Users</th>
+                                            <th>Description</th>
+                                            <th>Start Date</th>
+                                            <th>End date</th>
+                                            <th>Action</th>
                                         </tr>
-                                    ) : offers?.map(offer => (
-                                        <tr>
-                                            <td>#00213395626626</td>
-                                            <td>{offer?.title}</td>
-                                            <td>200</td>
-                                            <td>{offer?.discountPercentage}%</td>
-                                            <td>{offer?.targetUsers}</td>
-                                            <td>{offer?.description}</td>
-                                            <td>{formatDate(offer?.createdAt)}</td>
-                                            <td>{formatDate(offer?.validUntil)}</td>
-                                            <td>
-                                                <div className='offer4'>
-                                                    <MdEdit color='#1C1B1F' />
-                                                    <RiDeleteBin6Line color='#EA5455' />
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    ))
-                                    }
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        {loading ? (
+                                            <tr>
+                                                <td colSpan="10" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Loading users...</td>
+                                            </tr>
+                                        ) : offers?.map(offer => (
+                                            <tr>
+                                                <td>#00213395626626</td>
+                                                <td>{offer?.title}</td>
+                                                <td>200</td>
+                                                <td>{offer?.discountPercentage}%</td>
+                                                <td>{offer?.targetUsers}</td>
+                                                <td>{offer?.description}</td>
+                                                <td>{formatDate(offer?.createdAt)}</td>
+                                                <td>{formatDate(offer?.validUntil)}</td>
+                                                <td>
+                                                    <div className='offer4'>
+                                                        <MdEdit color='#1C1B1F' />
+                                                        <RiDeleteBin6Line color='#EA5455' />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

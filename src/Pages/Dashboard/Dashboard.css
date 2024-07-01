@@ -378,20 +378,19 @@
 }
 
 .dashboard27 {
-  width: 90%;
+  width: 90px;
   height: 32px;
-  padding: 0px 14px 0px 8px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #28c76f;
   border-radius: 16px;
 }
 
 .dashboard27 p {
   font-family: "Public Sans", sans-serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 22px;
   color: #ffffff;
   margin: 0;

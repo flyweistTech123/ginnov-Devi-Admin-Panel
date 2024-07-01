@@ -30,10 +30,12 @@ const UserProfile = () => {
     const [accountNumber, setAccountNumber] = useState('');
     const [bankName, setBankName] = useState('');
     const [ifscCode, setIFSCCode] = useState('');
-    const [profileimg, setProfileImage] = useState('');
+    const [profileimg1, setProfileImage1] = useState('');
     const [name1, setName] = useState('')
     const [email1, setEmail] = useState('');
     const [number1, setNumber] = useState('')
+    const [kycstatus1, setKYCStatus1] = useState('')
+    const [remark1, setRemark1] = useState('')
     const [currentImageUrl, setCurrentImageUrl] = useState('');
     const [modalShow, setModalShow] = useState(false);
     const [modalShow1, setModalShow1] = useState(false);
@@ -72,7 +74,9 @@ const UserProfile = () => {
         setName(userdata?.fullName)
         setEmail(userdata?.email)
         setNumber(userdata?.mobileNumber)
-        setProfileImage(userdata?.image)
+        setKYCStatus1(userdata?.documentVerification)
+        setRemark1(userdata?.documentRemarks)
+        setProfileImage1(userdata?.image)
     }, [userdata]);
 
 
@@ -85,11 +89,6 @@ const UserProfile = () => {
     };
 
 
-
-    const triggerFileInput = (e) => {
-        e.stopPropagation();
-        document.getElementById('fileInput').click();
-    };
 
 
     const triggerFileInput1 = (e) => {
@@ -114,9 +113,7 @@ const UserProfile = () => {
 
 
 
-    const handleImageChange = (e) => {
-        setProfileImage(e.target.files[0]);
-    };
+
 
 
     const handleImageChange1 = (e) => {
@@ -266,29 +263,63 @@ const UserProfile = () => {
     //updateprofile modal
 
     function UpdateProfile(props) {
+        const [profileimg, setProfileImage] = useState(profileimg1);
         const [name, setName] = useState(name1)
         const [email, setEmail] = useState(email1);
         const [number, setNumber] = useState(number1)
+        const [kycstatus, setKYCStatus] = useState(kycstatus1)
+        const [remark, setRemark] = useState(remark1)
 
 
+        const triggerFileInput = (e) => {
+            e.stopPropagation();
+            document.getElementById('fileInput').click();
+        };
 
-        const updateuser = async (e) => {
-            e.preventDefault();
+        const handleImageChange = (e) => {
+            setProfileImage(e.target.files[0]);
+        };
+
+
+        const updateprofileimg = async () => {
+            const profileimageData = new FormData();
+            profileimageData.append('image', profileimg);
+            try {
+                await axios.put(`${BaseUrl}/admin/upload-profile-picture/${id}`, profileimageData, getAuthHeaders());
+            } catch (error) {
+                console.error('Error updating image:', error);
+                toast.error("Failed to update user image. Please try again later.");
+            }
+        }
+
+
+        const updateuser = async () => {
+
             const userdertails = {
                 fullName: name,
-                mobileNumber: Number,
+                mobileNumber: number,
                 email: email,
+                documentVerification: kycstatus,
+                documentRemarks: remark,
             };
             try {
                 await axios.put(`${BaseUrl}/admin/update/user/${id}`, userdertails, getAuthHeaders());
-                toast.success("User Details Updated successfully");
-                Userdetails();
                 setModalShow1(false)
             } catch (error) {
                 console.error('Error updating User details:', error);
                 toast.error("Failed to update User details. Please try again later.");
             }
         };
+
+
+        const handleclick = (e) => {
+            e.preventDefault();
+            updateuser()
+            updateprofileimg()
+            toast.success("User Details Updated successfully");
+            Userdetails();
+
+        }
 
 
         return (
@@ -324,9 +355,36 @@ const UserProfile = () => {
                                 <input type="text" placeholder='Enter mobile number' value={number} onChange={(e) => setNumber(e.target.value)} />
                             </div>
                         </div>
+                        <div className='userprofile8'>
+                            <label htmlFor="">KYC Status</label>
+                            <div className='userprofile11'>
+                                <div className='userprofile12'>
+                                    <input type="radio" name="status" checked={kycstatus === "APPROVED"} onChange={() => setKYCStatus("APPROVED")} />
+                                    <label htmlFor="">APPROVED</label>
+                                </div>
+                                <div className='userprofile12'>
+                                    <input type="radio" name="status" checked={kycstatus === "PENDING"} onChange={() => setKYCStatus("PENDING")} />
+                                    <label htmlFor="">PENDING</label>
+                                </div>
+                                <div className='userprofile12'>
+                                    <input type="radio" name="status" checked={kycstatus === "CANCELLED"} onChange={() => setKYCStatus("CANCELLED")} />
+                                    <label htmlFor="">CANCELLED</label>
+                                </div>
+                                <div className='userprofile12'>
+                                    <input type="radio" name="status" checked={kycstatus === "HOLD"} onChange={() => setKYCStatus("HOLD")} />
+                                    <label htmlFor="">HOLD</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='userprofile7'>
+                            <div className='userprofile8'>
+                                <label htmlFor="">Remark</label>
+                                <input type="text" placeholder='Enter ramark' value={remark} onChange={(e) => setRemark(e.target.value)} />
+                            </div>
+                        </div>
                         <div className='userprofile10'>
                             <div className='userprofile2'>
-                                <button onClick={updateuser}>Update</button>
+                                <button onClick={handleclick}>Update</button>
                             </div>
                         </div>
 

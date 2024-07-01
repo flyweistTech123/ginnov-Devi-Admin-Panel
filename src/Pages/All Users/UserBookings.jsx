@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './AllUsers.css'
 import { BaseUrl, getAuthHeaders } from '../../Components/BaseUrl/BaseUrl'
 
-import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaSortAmountUp } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 import { VscFilter } from "react-icons/vsc";
@@ -29,7 +28,6 @@ const UserBookings = () => {
         try {
             const response = await axios.get(`${BaseUrl}/admin/bookings/user/${id?.id}`, getAuthHeaders());
             setUserBookings(response?.data?.data)
-            console.log("shdagd", userBookings)
 
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -78,60 +76,60 @@ const UserBookings = () => {
                                     </div>
                                 </div>
                             </div>
-
-                            <div className='dashboard24'>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Image</th>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Car</th>
-                                            <th>Vehicle No.</th>
-                                            <th>Pickup and drop time</th>
-                                            <th>Amount</th>
-                                            <th>Type</th>
-                                            <th>Pickup Location</th>
-                                            <th>Drop Location</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {loading ? (
+                            <div className='dashboard244'>
+                                <div className='dashboard24'>
+                                    <table>
+                                        <thead>
                                             <tr>
-                                                <td colSpan="12" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Loading Bookings...</td>
+                                                <th>Image</th>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Car</th>
+                                                <th>Vehicle No.</th>
+                                                <th>Pickup and drop time</th>
+                                                <th>Amount</th>
+                                                <th>Type</th>
+                                                <th>Pickup Location</th>
+                                                <th>Drop Location</th>
+                                                <th>Status</th>
                                             </tr>
-                                        ) :
-                                            userBookings.length === 0 ? (
+                                        </thead>
+                                        <tbody>
+                                            {loading ? (
                                                 <tr>
-                                                    <td colSpan="12" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Bookings not found</td>
+                                                    <td colSpan="12" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Loading Bookings...</td>
                                                 </tr>
                                             ) :
-                                                userBookings.map((item, index) => (
-                                                    <tr key={index}>
-                                                        <td>
-                                                            <img src={item?.car?.owner?.image} alt="" />
-                                                        </td>
-                                                        <td>#{item?.uniqueBookinId}</td>
-                                                        <td>{item?.car?.owner?.fullName}</td>
-                                                        <td>{item?.car?.variant}</td>
-                                                        <td>{item?.car?.licenseNumber}</td>
-                                                        <td>
-                                                            {formatDate(item.pickupDate)}{item.pickupTime}-<br/>
-                                                            {formatDate(item.dropOffDate)}{item.dropOffTime}
-                                                        </td>
-                                                        <td>{item.totalPrice}</td>
-                                                        <td>{item.isRental? "Rent":item.isSharingBooking?"Sharing":"subscription"}</td>
-                                                        <td>{item?.pickupLocation?.name}</td>
-                                                        <td>{item?.dropOffLocation?.name}</td>
-                                                        <td>{item?.status}</td>
+                                                userBookings.length === 0 ? (
+                                                    <tr>
+                                                        <td colSpan="12" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Bookings not found</td>
                                                     </tr>
-                                                ))
-                                        }
-                                    </tbody>
-                                </table>
+                                                ) :
+                                                    userBookings.map((item, index) => (
+                                                        <tr key={index}>
+                                                            <td>
+                                                                <img src={item?.car?.owner?.image} alt="" />
+                                                            </td>
+                                                            <td>#{item?.uniqueBookinId}</td>
+                                                            <td>{item?.car?.owner?.fullName}</td>
+                                                            <td>{item?.car?.variant}</td>
+                                                            <td>{item?.car?.licenseNumber}</td>
+                                                            <td>
+                                                                {formatDate(item.pickupDate)}{item.pickupTime}-<br />
+                                                                {formatDate(item.dropOffDate)}{item.dropOffTime}
+                                                            </td>
+                                                            <td>{item.totalPrice}</td>
+                                                            <td>{item.isRental ? "Rent" : item.isSharingBooking ? "Sharing" : "subscription"}</td>
+                                                            <td>{item?.pickupLocation?.name}</td>
+                                                            <td>{item?.dropOffLocation?.name}</td>
+                                                            <td>{item?.status}</td>
+                                                        </tr>
+                                                    ))
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-
                             <div className='dashboard28'>
                                 <p>Showing 1-5 from 100</p>
 

@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './HostList.css'
-import HOC from '../../Components/HOC/HOC'
-import TopPart1 from './TopPart1';
+import { BaseUrl, getAuthHeaders } from '../../Components/BaseUrl/BaseUrl'
 
-import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaSortAmountUp } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 import { VscFilter } from "react-icons/vsc";
@@ -11,60 +9,50 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 
-
-import img from '../../Image/img2.png'
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Recentbookings = () => {
-    const dummyData = [
-        {
-            "img": img,
-            "id": "#0313131",
-            "Name": "Jassi Singh",
-            "Car": "Maruti Swift",
-            "Amount": "2000",
-            "Date": "03 November 2024",
-            "Type":"Rent",
-            "Location": "Delhi",
-            "Status":"Completed"
-        },
-        {
-            "img": img,
-            "id": "#0313131",
-            "Name": "Jassi Singh",
-            "Car": "Maruti Swift",
-            "Amount": "2000",
-            "Date": "03 November 2024",
-            "Type":"Rent",
-            "Location": "Delhi",
-            "Status":"Completed"
-        },
-        {
-            "img": img,
-            "id": "#0313131",
-            "Name": "Jassi Singh",
-            "Car": "Maruti Swift",
-            "Amount": "2000",
-            "Date": "03 November 2024",
-            "Type":"Rent",
-            "Location": "Delhi",
-            "Status":"Completed"
-        }
-    ];
 
+    const id = useParams()
+    const [hostBookings, setHostBookings] = useState([])
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        HostBookings();
+    }, [])
+
+
+
+    const HostBookings = async () => {
+        try {
+            const response = await axios.get(`${BaseUrl}/admin/bookings/partner/${id?.id}`, getAuthHeaders());
+            setHostBookings(response?.data?.data)
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            setLoading(false);
+        }
+        finally {
+            setLoading(false);
+        };
+    }
+
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const day = date.getUTCDate();
+        const month = date.toLocaleString('default', { month: 'long' });
+        const year = date.getUTCFullYear();
+
+        return `${day}-${month}-${year}`;
+    }
 
 
 
     return (
         <>
             <div className='dashboard'>
-                <div className='dashboard1'>
-                    <h6>Welcome Back Jay</h6>
-                    <p>Here is the information about all your Cars</p>
-                </div>
-                <div>
-                    <TopPart1 />
-                </div>
-
                 <div className='hostprofile22'>
                     <div className='hostprofile27'>
                         <div className='hostprofile30'>
@@ -88,44 +76,60 @@ const Recentbookings = () => {
                                     </div>
                                 </div>
                             </div>
-
-                            <div className='dashboard24'>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Image</th>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Car</th>
-                                            <th>Date</th>
-                                            <th>Amount</th>
-                                            <th>Type</th>
-                                            <th>Location</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {dummyData.map((item, index) => (
-                                            <tr key={index}>
-                                                <td>
-                                                    <img src={item.img} alt="" />
-                                                </td>
-                                                <td>{item.id}</td>
-                                                <td>{item.Name}</td>
-                                                <td>{item.Car}</td>
-                                                <td>{item.Date}</td>
-                                                <td>{item.Amount}</td>
-                                                <td>{item.Type}</td>
-                                                <td>{item.Location}</td>
-                                                <td>{item.Status}</td>
-                                                <td><RiDeleteBin6Line color='#1C1B1F' size={20} /></td>
+                            <div className='dashboard244'>
+                                <div className='dashboard24'>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Car</th>
+                                                <th>Vehicle No.</th>
+                                                <th>Pickup and drop time</th>
+                                                <th>Amount</th>
+                                                <th>Type</th>
+                                                <th>Pickup Location</th>
+                                                <th>Drop Location</th>
+                                                <th>Status</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            {loading ? (
+                                                <tr>
+                                                    <td colSpan="12" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Loading Bookings...</td>
+                                                </tr>
+                                            ) :
+                                            hostBookings.length === 0 ? (
+                                                    <tr>
+                                                        <td colSpan="12" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Bookings not found</td>
+                                                    </tr>
+                                                ) :
+                                                hostBookings.map((item, index) => (
+                                                        <tr key={index}>
+                                                            <td>
+                                                                <img src={item?.car?.owner?.image} alt="" />
+                                                            </td>
+                                                            <td>#{item?.uniqueBookinId}</td>
+                                                            <td>{item?.car?.owner?.fullName}</td>
+                                                            <td>{item?.car?.variant}</td>
+                                                            <td>{item?.car?.licenseNumber}</td>
+                                                            <td>
+                                                                {formatDate(item.pickupDate)}{item.pickupTime}-<br />
+                                                                {formatDate(item.dropOffDate)}{item.dropOffTime}
+                                                            </td>
+                                                            <td>{item.totalPrice}</td>
+                                                            <td>{item.isRental ? "Rent" : item.isSharingBooking ? "Sharing" : "subscription"}</td>
+                                                            <td>{item?.car?.pickup?.name}</td>
+                                                            <td>{item?.car?.drop?.name}</td>
+                                                            <td>{item?.status}</td>
+                                                        </tr>
+                                                    ))
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-
                             <div className='dashboard28'>
                                 <p>Showing 1-5 from 100</p>
 
@@ -158,4 +162,4 @@ const Recentbookings = () => {
     )
 }
 
-export default HOC(Recentbookings)
+export default Recentbookings

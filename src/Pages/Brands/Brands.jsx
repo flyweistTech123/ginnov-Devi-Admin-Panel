@@ -3,7 +3,7 @@ import HOC from '../../Components/HOC/HOC'
 import './Brands.css'
 import axios from 'axios'
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BaseUrl, getAuthHeaders } from '../../Components/BaseUrl/BaseUrl'
 
 import { IoMdAdd } from "react-icons/io";
@@ -52,15 +52,17 @@ const Brands = () => {
               <tr>
                 <td colSpan="10" style={{ color: "#245196", fontWeight: "600", fontSize: "18px" }}>Loading brands...</td>
               </tr>
-            ) 
+            )
               : (
                 branddata?.map(brand => (
-                  <div className='brands3' onClick={() => navigate('/editbrands')}>
-                    <img src={brand.image} alt="" />
-                    <div className='brands4'>
-                      <h6>{brand.name}</h6>
+                  <Link to={`/editbrands/${brand._id}`} key={brand._id} className='linkfrop'>
+                    <div className='brands3'>
+                      <img src={brand.image} alt="" />
+                      <div className='brands4'>
+                        <h6>{brand.name}</h6>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))
               )}
           </div>

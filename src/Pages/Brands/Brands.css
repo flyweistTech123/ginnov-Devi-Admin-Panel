@@ -26,11 +26,10 @@
   max-width: 100px;
 }
 
-.brands4{
-
+.brands4 {
 }
 
-.brands4 h6{
+.brands4 h6 {
   font-family: "Public Sans", sans-serif;
   font-weight: 600;
   font-size: 18px;
@@ -96,31 +95,43 @@
 }
 
 
+.addbrand4{
+  width: 300px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addbrand4 img{
+  width: 100%;
+  height: 100%;
+}
 
 /* edit brand css  */
 
-.editbrand{
+.editbrand {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.editbrand button:nth-child(1){
+.editbrand button:nth-child(1) {
   width: 150px;
   height: 40px;
   border: none;
   outline: none;
   border-radius: 12px;
-  background-color: #77878F;
+  background-color: #77878f;
   font-family: "Public Sans", sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 28px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
 }
 
-.editbrand button:nth-child(2){
+.editbrand button:nth-child(2) {
   width: 150px;
   height: 40px;
   border: none;
@@ -131,6 +142,6 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 28px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
 }

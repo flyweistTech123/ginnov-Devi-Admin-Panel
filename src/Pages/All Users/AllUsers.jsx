@@ -30,13 +30,15 @@ import { Link } from 'react-router-dom';
 
 const AllUsers = () => {
   const [userdata, setUserData] = useState([]);
+  const [status, setStatus] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${BaseUrl}/admin/profile`, getAuthHeaders())
+      const response = await axios.get(`${BaseUrl}/admin/profile/by-userType?currentRole=USER&userType=USER`, getAuthHeaders())
       const userDataArray = Object.values(response.data.data);
+      setStatus(response?.data?.data?.user?.documentVerification)
       setUserData(userDataArray);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -72,6 +74,26 @@ const AllUsers = () => {
     }
   };
 
+
+  // Define the color based on DriverData.status
+  let textColor = '';
+
+  switch (status) {
+    case 'CANCELLED':
+      textColor = '#F52D56'; // Red color for 'reject'
+      break;
+    case 'PENDING':
+      textColor = '#FBAC2C'; // Orange color for 'pending'
+      break;
+    case 'APPROVED':
+      textColor = '#609527'; // Green color for 'approved' and 'hold'
+      break;
+    case 'hold':
+      textColor = '#357ABD'; // Green color for 'approved' and 'hold'
+      break;
+    default:
+      textColor = '#000'; // Default color (black) for unknown status
+  }
 
 
 
@@ -143,22 +165,23 @@ const AllUsers = () => {
                           ?
                           filteredData?.map(user => (
                             <tr key={user.id}>
-                              <td style={{ fontWeight: "700" }}>#0313131</td>
+                              <td style={{ fontWeight: "700" }}>#{user?.user?.userId}</td>
                               <td>{user?.user?.fullName}</td>
                               <td>{user?.user?.mobileNumber}</td>
                               <td>{user?.user?.email}</td>
                               <td>{user?.memberSince}</td>
                               <td>
-                                {user?.user?.accountVerification ? (
-                                  <div className='dashboard27'>
-                                    <IoMdCheckmark color='#FFFFFF' size={20} />
-                                    <p>Done</p>
-                                  </div>
-                                ) : (
-                                  <div className='dashboard27' style={{ backgroundColor: "#ffd65a" }}>
-                                    <p>Pending</p>
-                                  </div>
-                                )}
+                                <div className='dashboard27'
+                                  style={{
+                                    backgroundColor:
+                                      user?.user?.documentVerification === 'PENDING' ? "#FECE48" :
+                                        user?.user?.documentVerification === 'APPROVED' ? "#28C76F" :
+                                          user?.user?.documentVerification === 'HOLD' ? "#357ABD" :
+                                            "#F52D56"
+                                  }}
+                                >
+                                  <p>{user?.user?.documentVerification}</p>
+                                </div>
                               </td>
                               <td>{user?.user?.state}</td>
                               <td>4.5 <IoMdStar color='#FECE48' /></td>
@@ -189,21 +212,23 @@ const AllUsers = () => {
                           ))
                           : userdata?.map(user => (
                             <tr key={user.id}>
-                              <td style={{ fontWeight: "700" }}>#0313131</td>
+                              <td style={{ fontWeight: "700" }}>#{user?.user?.userId}</td>
                               <td>{user?.user?.fullName}</td>
                               <td>{user?.user?.mobileNumber}</td>
                               <td>{user?.user?.email}</td>
                               <td>{user?.memberSince}</td>
                               <td>
-                                {user?.user?.accountVerification ? (
-                                  <div className='dashboard27'>
-                                    <p>Done</p>
-                                  </div>
-                                ) : (
-                                  <div className='dashboard27' style={{ backgroundColor: "#ffd65a" }}>
-                                    <p>Pending</p>
-                                  </div>
-                                )}
+                                <div className='dashboard27'
+                                  style={{
+                                    backgroundColor:
+                                      user?.user?.documentVerification === 'PENDING' ? "#FECE48" :
+                                        user?.user?.documentVerification === 'APPROVED' ? "#28C76F" :
+                                          user?.user?.documentVerification === 'HOLD' ? "#357ABD" :
+                                            "#F52D56"
+                                  }}
+                                >
+                                  <p>{user?.user?.documentVerification}</p>
+                                </div>
                               </td>
                               <td>{user?.user?.state}</td>
                               <td>4.5 <IoMdStar color='#FECE48' /></td>

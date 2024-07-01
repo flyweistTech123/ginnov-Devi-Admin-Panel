@@ -1,7 +1,6 @@
 import React from 'react'
 import './HostList.css'
 import HOC from '../../Components/HOC/HOC'
-import TopPart1 from './TopPart1';
 
 
 import { FaSortAmountUp } from "react-icons/fa";
@@ -51,14 +50,6 @@ const ReferralHistory = () => {
     return (
         <>
             <div className='dashboard'>
-                <div className='dashboard1'>
-                    <h6>Welcome Back Jay</h6>
-                    <p>Here is the information about all your Cars</p>
-                </div>
-                <div>
-                    <TopPart1 />
-                </div>
-
                 <div className='hostprofile22'>
                     <div className='hostprofile27'>
                         <div className='hostprofile30'>

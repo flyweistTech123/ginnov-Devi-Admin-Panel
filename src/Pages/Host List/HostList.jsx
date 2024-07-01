@@ -35,7 +35,7 @@ const HostList = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get(`${BaseUrl}/admin/profile`, getAuthHeaders())
+            const response = await axios.get(`${BaseUrl}/admin/profile/by-userType?currentRole=PARTNER&userType=PARTNER`, getAuthHeaders())
             const userDataArray = Object.values(response.data.data);
             setHostData(userDataArray);
         } catch (error) {
@@ -192,17 +192,34 @@ const HostList = () => {
                                                             <td>{user?.user?.fullName}</td>
                                                             <td>{user?.user?.mobileNumber}</td>
                                                             <td>{user?.user?.email}</td>
+                                                            <td>20</td>
+                                                            <td>20</td>
                                                             <td>{user?.memberSince}</td>
                                                             <td>
-                                                                {user?.user?.accountVerification ? (
-                                                                    <div className='dashboard27'>
-                                                                        <p>Done</p>
-                                                                    </div>
-                                                                ) : (
-                                                                    <div className='dashboard27' style={{ backgroundColor: "#ffd65a" }}>
-                                                                        <p>Pending</p>
-                                                                    </div>
-                                                                )}
+                                                                <div className='dashboard27'
+                                                                    style={{
+                                                                        backgroundColor:
+                                                                            user?.user?.documentVerification === 'PENDING' ? "#FECE48" :
+                                                                                user?.user?.documentVerification === 'APPROVED' ? "#28C76F" :
+                                                                                    user?.user?.documentVerification === 'HOLD' ? "#357ABD" :
+                                                                                        "#F52D56"
+                                                                    }}
+                                                                >
+                                                                    <p>{user?.user?.documentVerification}</p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div className='dashboard27'
+                                                                    style={{
+                                                                        backgroundColor:
+                                                                            user?.user?.documentVerification === 'PENDING' ? "#FECE48" :
+                                                                                user?.user?.documentVerification === 'APPROVED' ? "#28C76F" :
+                                                                                    user?.user?.documentVerification === 'HOLD' ? "#357ABD" :
+                                                                                        "#F52D56"
+                                                                    }}
+                                                                >
+                                                                    <p>{user?.user?.documentVerification}</p>
+                                                                </div>
                                                             </td>
                                                             <td>{user?.user?.state}</td>
                                                             <td>4.5 <IoMdStar color='#FECE48' /></td>
@@ -213,7 +230,7 @@ const HostList = () => {
                                                                     </Dropdown.Toggle>
                                                                     <Dropdown.Menu>
                                                                         <Dropdown.Item href="#/action-1" className='userdrop1'>
-                                                                            <Link to={`/userProfile/${user?._id}`} className='linkfrop'>
+                                                                            <Link to={`/hostprofile/${user?._id}`} className='linkfrop'>
                                                                                 <div className='userdrop'>
                                                                                     <FaRegUser color='#000000' size={20} />
                                                                                     <p>View Profile</p>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './AllUsers.css'
+import './HostList.css'
 import img from '../../Image/img16.png'
 import { AiOutlineRise } from "react-icons/ai";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
@@ -8,7 +8,7 @@ import { BaseUrl, getAuthHeaders } from '../../Components/BaseUrl/BaseUrl'
 
 
 
-const UserProfileTop = ({ data }) => {
+const HostProfileTop = ({ data }) => {
     const navigate = useNavigate();
 
     return (
@@ -54,4 +54,4 @@ const UserProfileTop = ({ data }) => {
     )
 }
 
-export default UserProfileTop
+export default HostProfileTop

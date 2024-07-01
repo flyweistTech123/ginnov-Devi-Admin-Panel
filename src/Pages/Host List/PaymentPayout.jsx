@@ -1,12 +1,6 @@
 import React from 'react'
 import './HostList.css'
-import HOC from '../../Components/HOC/HOC'
-import TopPart from './TopPart';
-import img from '../../Image/img17.png'
-import img1 from '../../Image/img18.png'
-import img2 from '../../Image/img19.png'
-import img3 from '../../Image/img20.png'
-import img4 from '../../Image/img21.png'
+
 
 
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -65,14 +59,6 @@ const PaymentPayout = () => {
     return (
         <>
             <div className='dashboard'>
-                <div className='dashboard1'>
-                    <h6>Welcome Back Jay</h6>
-                    <p>Here is the information about all your Cars</p>
-                </div>
-                <div>
-                    <TopPart />
-                </div>
-
                 <div className='hostprofile22'>
                     <div className='hostprofile23'>
                         <div className='hostprofile24'>
@@ -142,4 +128,4 @@ const PaymentPayout = () => {
     )
 }
 
-export default HOC(PaymentPayout)
+export default PaymentPayout
